@@ -3,120 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logística Staff PRO · Eventos</title>
+  <title>Staff Logística · PRO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f1e8;
+      --bg:#f5f0e8;
       --panel:#ffffff;
-      --ink:#241b16;
-      --muted:#7a6d60;
-      --line:#e8ddd1;
-      --accent:#d94a2f;
-      --accent-2:#1f5da9;
-      --ok:#1f8c4b;
-      --warn:#c27a10;
-      --soft:#f9f6f1;
-      --shadow:0 10px 30px rgba(36,27,22,.08);
-      --radius:18px;
+      --ink:#261d18;
+      --muted:#7d7065;
+      --line:#e8ddd0;
+      --accent:#de4b2b;
+      --accent2:#1f5fa8;
+      --soft:#fbf8f4;
+      --shadow:0 10px 30px rgba(38,29,24,.08);
+      --radius:20px;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans", sans-serif;}
-    .topbar{background:#1f1712;color:#fff;padding:18px 22px 20px;border-top:4px solid var(--accent);}
-    .wrap{max-width:1380px;margin:0 auto;padding:22px;}
-    .tag{color:#ff8a73;letter-spacing:.22em;font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:6px;}
-    .title{font-family:"Bebas Neue",sans-serif;font-size:54px;line-height:.95;margin:0;}
-    .sub{margin-top:8px;color:#ccbfb3;font-size:14px;}
-    .card,.pill,.table-wrap,.empty,.notice,.timeline-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);}
-    .notice{padding:16px 18px;margin-bottom:18px;}
-    .controls{display:grid;grid-template-columns:1.1fr repeat(5,minmax(120px,1fr));gap:12px;margin-bottom:18px;}
-    .pill{padding:16px 18px;min-height:88px;display:flex;flex-direction:column;justify-content:center}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}
+    .topbar{
+      background:#1f1712;color:#fff;padding:22px 24px 26px;border-top:4px solid var(--accent);
+      position:sticky;top:0;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.08)
+    }
+    .wrap{max-width:1440px;margin:0 auto}
+    .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#ff9a85}
+    .title{font-family:"Bebas Neue",sans-serif;font-size:60px;line-height:.92;margin:6px 0 4px}
+    .subtitle{color:#cfbfb1;font-size:14px}
+    .controls{
+      padding:22px 24px 8px
+    }
+    .stats,.filters,.content{max-width:1440px;margin:0 auto}
+    .stats{
+      display:grid;grid-template-columns:1.1fr repeat(6,minmax(120px,1fr));gap:12px;margin-bottom:16px
+    }
+    .card,.stat,.field,.panel,.timeline-card,.task-card,.empty,.mini{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)
+    }
+    .stat{padding:16px 18px;min-height:90px;display:flex;flex-direction:column;justify-content:center}
     .num{font-size:30px;font-weight:700;line-height:1;margin-bottom:6px}
-    .lbl{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-    .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
-    button{border:none;border-radius:12px;padding:11px 14px;font-family:inherit;font-weight:700;cursor:pointer}
+    .lbl{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+    .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+    button,a.btn{
+      border:none;border-radius:14px;padding:11px 15px;font-family:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center
+    }
     .btn-primary{background:var(--accent);color:#fff}
-    .btn-secondary{background:#efe8df;color:var(--ink)}
-    .btn-link{background:transparent;color:var(--accent-2);padding:0;text-decoration:underline}
-    .filters{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr 1fr;gap:12px;margin-bottom:18px}
-    .field{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow)}
-    .field label{display:block;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-    input,select{width:100%;border:none;outline:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink)}
-    .grid{display:grid;grid-template-columns:1fr 1.8fr;gap:18px}
-    .left-col{display:flex;flex-direction:column;gap:18px}
-    .section{padding:18px}
-    .section h3{margin:0 0 12px;font-size:18px}
+    .btn-secondary{background:#efe7dd;color:var(--ink)}
+    .btn-link{background:transparent;color:var(--accent2);padding:0;text-decoration:underline}
+    .filters{
+      display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr 1fr 1fr;gap:12px;margin-bottom:18px
+    }
+    .field{padding:10px 12px}
+    .field label{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px}
+    input,select{
+      width:100%;border:none;outline:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink)
+    }
+    .content{display:grid;grid-template-columns:360px 1fr;gap:18px;padding:0 24px 28px}
+    .sidebar{display:flex;flex-direction:column;gap:18px}
+    .panel{padding:18px}
+    .panel h3{margin:0 0 12px;font-size:18px}
     .meta-list{display:grid;gap:10px}
     .meta-item{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
     .meta-item .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:4px}
     .meta-item .v{font-size:15px;font-weight:500}
-    .people{display:flex;flex-wrap:wrap;gap:10px}
-    .person{border:2px solid #e6d6c6;background:#fff;border-radius:999px;padding:10px 12px;min-width:210px}
-    .person .n{font-weight:700;font-size:14px}.person .r{color:var(--muted);font-size:12px;margin-top:2px}
-    .mode-switch{display:flex;gap:10px;margin-bottom:14px}
-    .mode-btn.active{background:var(--accent);color:#fff}
-    .table-wrap{overflow:hidden}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:14px}
-    th{background:#fcf9f5;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:700}
-    tr:hover td{background:#fffdfb}
-    .tag-status{display:inline-flex;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid transparent}
-    .status-pendiente{background:#fff4e8;color:#9a6220;border-color:#f1d1a7}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip-person{
+      border:2px solid #e7d7c8;background:#fff;border-radius:999px;padding:10px 12px;min-width:220px
+    }
+    .chip-person .n{font-weight:700;font-size:14px}
+    .chip-person .r{font-size:12px;color:var(--muted);margin-top:2px}
+    .main{display:flex;flex-direction:column;gap:16px}
+    .view-switch{display:flex;gap:10px;flex-wrap:wrap}
+    .view-btn.active{background:var(--accent);color:#fff}
+    .view{display:none}
+    .view.active{display:block}
+    .timeline-group{display:grid;gap:16px}
+    .timeline-card{padding:16px}
+    .timeline-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px}
+    .timeline-title{font-weight:700;font-size:18px}
+    .timeline-sub{font-size:13px;color:var(--muted)}
+    .timeline-items{display:grid;gap:10px}
+    .timeline-item{
+      display:grid;grid-template-columns:140px 1fr;gap:14px;padding:14px;border:1px solid var(--line);background:var(--soft);border-radius:16px
+    }
+    .time-range{font-weight:700;font-size:16px;color:var(--accent2)}
+    .task-main b{display:block;font-size:15px;margin-bottom:4px}
+    .task-notes{font-size:13px;color:var(--muted)}
+    .task-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .tag{
+      display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid transparent
+    }
+    .list-wrap{display:grid;gap:10px}
+    .task-card{padding:15px 16px;display:grid;grid-template-columns:180px 1fr auto;gap:14px;align-items:start}
+    .task-card .left .event{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:6px}
+    .task-card .left .hour{font-size:18px;font-weight:700;color:var(--accent2)}
+    .task-card .center .name{font-weight:700;font-size:16px;margin-bottom:4px}
+    .task-card .center .subline{font-size:13px;color:var(--muted)}
+    .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .mini{padding:12px 14px}
+    .mini .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:4px}
+    .mini .v{font-size:14px;font-weight:700}
+    .empty{padding:34px 20px;text-align:center;color:var(--muted)}
+    .small{font-size:12px;color:var(--muted)}
+    .footer-note{font-size:12px;color:var(--muted);margin-top:10px}
+    .status-pendiente{background:#fff3e8;color:#9a6220;border-color:#f1d1a7}
     .status-en-proceso{background:#eaf2ff;color:#275da5;border-color:#bad0f3}
     .status-listo{background:#eaf8ef;color:#247844;border-color:#bbe2c8}
     .status-terminado{background:#edf9f2;color:#1b7e42;border-color:#b4dfc4}
     .status-default{background:#f3eee8;color:#6f6256;border-color:#e2d7ca}
-    .empty{padding:34px 20px;text-align:center;color:var(--muted)}
-    .small,.footer-note{font-size:12px;color:var(--muted)}
-    .timeline-group{display:grid;gap:14px}
-    .timeline-card{padding:16px}
-    .timeline-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap}
-    .timeline-title{font-weight:700;font-size:18px}
-    .timeline-sub{color:var(--muted);font-size:13px}
-    .timeline-items{display:grid;gap:10px}
-    .timeline-item{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px;border:1px solid var(--line);background:var(--soft);border-radius:14px}
-    .timeline-hour{font-weight:700;color:var(--accent-2)}
-    .timeline-main b{display:block;margin-bottom:4px}
-    .timeline-meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:6px}
-    .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 8px}
-    .hidden{display:none}
-    @media (max-width:1100px){
-      .controls,.filters,.grid{grid-template-columns:1fr}
-      .title{font-size:44px}
-      .timeline-item{grid-template-columns:1fr}
+    @media (max-width:1180px){
+      .stats,.filters,.content{grid-template-columns:1fr}
+      .content{padding:0 24px 24px}
+      .title{font-size:48px}
+      .task-card,.timeline-item{grid-template-columns:1fr}
+      .mini-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
   <div class="topbar">
-    <div class="wrap" style="padding:0 22px;">
-      <div class="tag">Plan de trabajo · Staff</div>
-      <h1 class="title">Logística de Evento PRO</h1>
-      <div class="sub">Google Sheets + filtros por evento y fecha + vista timeline compartida</div>
+    <div class="wrap">
+      <div class="eyebrow">Panel compartido · Staff operativo</div>
+      <div class="title">Logística de Evento PRO</div>
+      <div class="subtitle">Google Sheets conectado · filtros por evento y fecha · timeline con hora inicio y fin</div>
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="notice">
-      <strong>Formato recomendado en Google Sheet:</strong>
-      <b>Evento</b>, <b>Fecha</b>, <b>Hora</b>, <b>Actividad</b>, <b>Responsable</b>, <b>Área</b>, <b>Estado</b>, <b>Notas</b>
-      <div class="footer-note">Opcional: crea una hoja llamada <b>Evento</b> con columnas <b>Campo</b> y <b>Valor</b>.</div>
-    </div>
-
-    <div class="controls">
-      <div class="pill"><div class="num" id="totalTasks">0</div><div class="lbl">Actividades</div></div>
-      <div class="pill"><div class="num" id="eventCount">0</div><div class="lbl">Eventos</div></div>
-      <div class="pill"><div class="num" id="pendingCount">0</div><div class="lbl">Pendientes</div></div>
-      <div class="pill"><div class="num" id="progressCount">0</div><div class="lbl">En proceso</div></div>
-      <div class="pill"><div class="num" id="doneCount">0</div><div class="lbl">Listas / terminadas</div></div>
-      <div class="pill"><div class="num" id="peopleCount">0</div><div class="lbl">Responsables</div></div>
+  <div class="controls">
+    <div class="stats">
+      <div class="stat"><div class="num" id="totalTasks">0</div><div class="lbl">Actividades</div></div>
+      <div class="stat"><div class="num" id="eventCount">0</div><div class="lbl">Eventos</div></div>
+      <div class="stat"><div class="num" id="dateCount">0</div><div class="lbl">Fechas</div></div>
+      <div class="stat"><div class="num" id="peopleCount">0</div><div class="lbl">Responsables</div></div>
+      <div class="stat"><div class="num" id="pendingCount">0</div><div class="lbl">Pendientes</div></div>
+      <div class="stat"><div class="num" id="progressCount">0</div><div class="lbl">En proceso</div></div>
+      <div class="stat"><div class="num" id="doneCount">0</div><div class="lbl">Listo / terminado</div></div>
     </div>
 
     <div class="toolbar">
       <button class="btn-primary" id="refreshBtn">Actualizar datos</button>
-      <a id="sheetLink" class="btn-link" href="#" target="_blank" rel="noopener noreferrer">Abrir Google Sheet</a>
+      <button class="btn-secondary" id="todayBtn">Solo hoy</button>
+      <button class="btn-secondary" id="clearBtn">Limpiar filtros</button>
+      <a class="btn-link" id="sheetLink" href="#" target="_blank" rel="noopener noreferrer">Abrir Google Sheet</a>
       <span class="small" id="lastUpdated">Sin actualizar</span>
     </div>
 
@@ -135,315 +163,401 @@
           <option value="terminado">Terminado</option>
         </select>
       </div>
-    </div>
-
-    <div class="grid">
-      <div class="left-col">
-        <div class="card section">
-          <h3>Datos del evento</h3>
-          <div class="meta-list" id="eventMeta">
-            <div class="meta-item"><div class="k">Estado</div><div class="v">Si usas varios eventos, este panel puede mostrar datos generales o datos del evento filtrado.</div></div>
-          </div>
-        </div>
-
-        <div class="card section">
-          <h3>Equipo</h3>
-          <div class="people" id="peopleList"></div>
-          <div class="footer-note">Los responsables se generan automáticamente desde la hoja.</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="mode-switch">
-          <button class="btn-secondary mode-btn active" data-mode="table">Vista tabla</button>
-          <button class="btn-secondary mode-btn" data-mode="timeline">Vista timeline</button>
-        </div>
-
-        <div id="tableView" class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Evento</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Actividad</th>
-                <th>Responsable</th>
-                <th>Área</th>
-                <th>Estado</th>
-                <th>Notas</th>
-              </tr>
-            </thead>
-            <tbody id="taskBody"></tbody>
-          </table>
-          <div class="empty" id="emptyState" style="display:none;">No hay actividades que coincidan con los filtros.</div>
-        </div>
-
-        <div id="timelineView" class="hidden">
-          <div class="timeline-group" id="timelineBody"></div>
-          <div class="empty" id="timelineEmpty" style="display:none;">No hay actividades que coincidan con los filtros.</div>
-        </div>
+      <div class="field"><label>Vista rápida</label>
+        <select id="quickViewFilter">
+          <option value="">Todo</option>
+          <option value="morning">Mañana</option>
+          <option value="afternoon">Tarde</option>
+          <option value="night">Noche</option>
+        </select>
       </div>
     </div>
   </div>
 
-  <script>
-    const SHEET_ID = '1gV6LHww9eqazeLvqukx_dlZSWf1nMCGkIRa85mVc2Zs';
-    const TASKS_SHEET_NAME = 'Hoja 1';
-    const EVENT_SHEET_NAME = 'Evento';
+  <div class="content">
+    <div class="sidebar">
+      <div class="panel">
+        <h3>Resumen del filtro</h3>
+        <div class="meta-list" id="eventMeta"></div>
+      </div>
 
-    const tasksCsvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(TASKS_SHEET_NAME)}`;
-    const eventCsvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(EVENT_SHEET_NAME)}`;
-    const sheetEditUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
-    document.getElementById('sheetLink').href = sheetEditUrl;
+      <div class="panel">
+        <h3>Equipo</h3>
+        <div class="chips" id="peopleList"></div>
+        <div class="footer-note">Los responsables se generan automáticamente desde tu Sheet.</div>
+      </div>
 
-    let allRows = [];
-    let currentMode = 'table';
+      <div class="panel">
+        <h3>Formato del Sheet</h3>
+        <div class="small"><b>Columnas recomendadas:</b><br>Evento | Fecha | Hora inicio | Hora fin | Actividad | Responsable | Área | Estado | Notas</div>
+      </div>
+    </div>
 
-    function parseCSV(text){
-      const rows=[]; let row=[]; let value=''; let inQuotes=false;
-      for(let i=0;i<text.length;i++){
-        const c=text[i], next=text[i+1];
-        if(c === '"'){
-          if(inQuotes && next === '"'){ value += '"'; i++; }
-          else inQuotes = !inQuotes;
-        } else if(c === ',' && !inQuotes){
-          row.push(value); value='';
-        } else if((c === '\n' || c === '\r') && !inQuotes){
-          if(c === '\r' && next === '\n') i++;
-          if(value.length || row.length){ row.push(value); rows.push(row); row=[]; value=''; }
-        } else value += c;
-      }
-      if(value.length || row.length){ row.push(value); rows.push(row); }
-      return rows;
+    <div class="main">
+      <div class="view-switch">
+        <button class="btn-secondary view-btn active" data-view="timeline">Timeline</button>
+        <button class="btn-secondary view-btn" data-view="cards">Tarjetas</button>
+      </div>
+
+      <div id="timelineView" class="view active">
+        <div class="timeline-group" id="timelineBody"></div>
+        <div class="empty" id="timelineEmpty" style="display:none;">No hay actividades que coincidan con los filtros.</div>
+      </div>
+
+      <div id="cardsView" class="view">
+        <div class="list-wrap" id="cardsBody"></div>
+        <div class="empty" id="cardsEmpty" style="display:none;">No hay actividades que coincidan con los filtros.</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const SHEET_ID = "1gV6LHww9eqazeLvqukx_dlZSWf1nMCGkIRa85mVc2Zs";
+const TASKS_SHEET_NAME = "Hoja 1";
+const EVENT_SHEET_NAME = "Evento";
+
+const tasksCsvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(TASKS_SHEET_NAME)}`;
+const eventCsvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(EVENT_SHEET_NAME)}`;
+const sheetEditUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
+document.getElementById("sheetLink").href = sheetEditUrl;
+
+let allRows = [];
+let metaRows = [];
+
+function parseCSV(text){
+  const rows=[]; let row=[]; let value=''; let inQuotes=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i], next=text[i+1];
+    if(c === '"'){
+      if(inQuotes && next === '"'){ value += '"'; i++; }
+      else inQuotes = !inQuotes;
+    } else if(c === ',' && !inQuotes){
+      row.push(value); value='';
+    } else if((c === '\n' || c === '\r') && !inQuotes){
+      if(c === '\r' && next === '\n') i++;
+      if(value.length || row.length){ row.push(value); rows.push(row); row=[]; value=''; }
+    } else {
+      value += c;
     }
+  }
+  if(value.length || row.length){ row.push(value); rows.push(row); }
+  return rows;
+}
 
-    function normalize(s=''){ return String(s).trim().toLowerCase(); }
-    function escapeHtml(s=''){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
-    function uniqueValues(rows,key){ return [...new Set(rows.map(r => (r[key]||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b)); }
-    function byDateTime(a,b){
-      const ad = `${a.Fecha || ''} ${a.Hora || ''}`.trim();
-      const bd = `${b.Fecha || ''} ${b.Hora || ''}`.trim();
-      return ad.localeCompare(bd);
-    }
-    function statusClass(status=''){
-      const s = normalize(status);
-      if (s === 'pendiente') return 'status-pendiente';
-      if (s === 'en proceso' || s === 'en-proceso') return 'status-en-proceso';
-      if (s === 'listo') return 'status-listo';
-      if (s === 'terminado' || s === 'completado') return 'status-terminado';
-      return 'status-default';
-    }
-    function fillSelect(id, values){
-      const el = document.getElementById(id);
-      const current = el.value;
-      const first = el.querySelector('option').outerHTML;
-      el.innerHTML = first + values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');
-      if (values.includes(current)) el.value = current;
-    }
+function normalize(s=''){ return String(s).trim().toLowerCase(); }
+function escapeHtml(s=''){
+  return String(s)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;');
+}
 
-    function renderStats(rows){
-      document.getElementById('totalTasks').textContent = rows.length;
-      document.getElementById('eventCount').textContent = uniqueValues(rows, 'Evento').length;
-      document.getElementById('pendingCount').textContent = rows.filter(r => normalize(r.Estado)==='pendiente').length;
-      document.getElementById('progressCount').textContent = rows.filter(r => ['en proceso','en-progreso'].includes(normalize(r.Estado))).length;
-      document.getElementById('doneCount').textContent = rows.filter(r => ['listo','terminado','completado'].includes(normalize(r.Estado))).length;
-      document.getElementById('peopleCount').textContent = uniqueValues(rows, 'Responsable').length;
-    }
+function uniqueValues(rows,key){
+  return [...new Set(rows.map(r => (r[key]||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+}
 
-    function renderPeople(rows){
-      const people = uniqueValues(rows,'Responsable');
-      const wrap = document.getElementById('peopleList');
-      if(!people.length){ wrap.innerHTML = '<div class="small">Aún no hay responsables en la hoja.</div>'; return; }
-      wrap.innerHTML = people.map(name => {
-        const mine = rows.filter(r => normalize(r.Responsable) === normalize(name));
-        const count = mine.length;
-        const areas = uniqueValues(mine,'Área').join(', ') || 'Sin área';
-        return `<div class="person"><div class="n">${escapeHtml(name)}</div><div class="r">${escapeHtml(areas)} · ${count} actividad${count===1?'':'es'}</div></div>`;
-      }).join('');
-    }
+function fillSelect(id, values){
+  const el = document.getElementById(id);
+  const current = el.value;
+  const first = el.querySelector('option').outerHTML;
+  el.innerHTML = first + values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');
+  if(values.includes(current)) el.value = current;
+}
 
-    function renderEventMeta(metaRows, filteredRows){
-      const box = document.getElementById('eventMeta');
-      const selectedEvent = document.getElementById('eventFilter').value;
-      const selectedDate = document.getElementById('dateFilter').value;
+function statusClass(status=''){
+  const s = normalize(status);
+  if (s === 'pendiente') return 'status-pendiente';
+  if (s === 'en proceso' || s === 'en-progreso') return 'status-en-proceso';
+  if (s === 'listo') return 'status-listo';
+  if (s === 'terminado' || s === 'completado') return 'status-terminado';
+  return 'status-default';
+}
 
-      const dynamic = [
-        { Campo:'Evento filtrado', Valor: selectedEvent || 'Todos' },
-        { Campo:'Fecha filtrada', Valor: selectedDate || 'Todas' },
-        { Campo:'Actividades visibles', Valor: String(filteredRows.length) },
-      ];
+function areaColor(area=''){
+  const map = {
+    'coordinación':'#de4b2b',
+    'montaje':'#1f5fa8',
+    'cocina':'#2d8a4a',
+    'audio':'#7a49b7',
+    'servicio':'#c48719',
+    'recepción':'#cb5e8e',
+    'foto':'#3e7a6c',
+    'video':'#5c4a1f'
+  };
+  return map[normalize(area)] || '#7d7065';
+}
 
-      if(metaRows.length){
-        box.innerHTML = [...dynamic, ...metaRows].map(p => `
-          <div class="meta-item">
-            <div class="k">${escapeHtml(p.Campo || 'Campo')}</div>
-            <div class="v">${escapeHtml(p.Valor || '—')}</div>
-          </div>`).join('');
-      } else {
-        box.innerHTML = dynamic.map(p => `
-          <div class="meta-item">
-            <div class="k">${escapeHtml(p.Campo)}</div>
-            <div class="v">${escapeHtml(p.Valor)}</div>
-          </div>`).join('');
-      }
-    }
+function prettyRange(start='', end=''){
+  if(start && end) return `${start} – ${end}`;
+  return start || end || 'Sin horario';
+}
 
-    function renderTable(rows){
-      const tbody = document.getElementById('taskBody');
-      const empty = document.getElementById('emptyState');
-      if(!rows.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
-      empty.style.display='none';
-      tbody.innerHTML = rows.sort(byDateTime).map(r => `
-        <tr>
-          <td>${escapeHtml(r.Evento || '—')}</td>
-          <td>${escapeHtml(r.Fecha || '—')}</td>
-          <td>${escapeHtml(r.Hora || '—')}</td>
-          <td><b>${escapeHtml(r.Actividad || '—')}</b></td>
-          <td>${escapeHtml(r.Responsable || '—')}</td>
-          <td>${escapeHtml(r['Área'] || r.Area || '—')}</td>
-          <td><span class="tag-status ${statusClass(r.Estado)}">${escapeHtml(r.Estado || '—')}</span></td>
-          <td>${escapeHtml(r.Notas || '—')}</td>
-        </tr>`).join('');
-    }
+function quickBucket(time=''){
+  const t = normalize(time);
+  const hour = parseInt(t.split(':')[0], 10);
+  if (Number.isNaN(hour)) return '';
+  if (hour < 12) return 'morning';
+  if (hour < 18) return 'afternoon';
+  return 'night';
+}
 
-    function renderTimeline(rows){
-      const wrap = document.getElementById('timelineBody');
-      const empty = document.getElementById('timelineEmpty');
-      if(!rows.length){ wrap.innerHTML=''; empty.style.display='block'; return; }
-      empty.style.display='none';
+function sortRows(rows){
+  return [...rows].sort((a,b)=>{
+    const x = `${a.Fecha||''} ${a['Hora inicio']||a.Hora||''} ${a.Evento||''}`;
+    const y = `${b.Fecha||''} ${b['Hora inicio']||b.Hora||''} ${b.Evento||''}`;
+    return x.localeCompare(y);
+  });
+}
 
-      const groups = {};
-      rows.sort(byDateTime).forEach(r => {
-        const key = `${r.Evento || 'Sin evento'}|||${r.Fecha || 'Sin fecha'}`;
-        groups[key] = groups[key] || [];
-        groups[key].push(r);
-      });
+function renderStats(rows){
+  document.getElementById('totalTasks').textContent = rows.length;
+  document.getElementById('eventCount').textContent = uniqueValues(rows,'Evento').length;
+  document.getElementById('dateCount').textContent = uniqueValues(rows,'Fecha').length;
+  document.getElementById('peopleCount').textContent = uniqueValues(rows,'Responsable').length;
+  document.getElementById('pendingCount').textContent = rows.filter(r => normalize(r.Estado)==='pendiente').length;
+  document.getElementById('progressCount').textContent = rows.filter(r => ['en proceso','en-progreso'].includes(normalize(r.Estado))).length;
+  document.getElementById('doneCount').textContent = rows.filter(r => ['listo','terminado','completado'].includes(normalize(r.Estado))).length;
+}
 
-      wrap.innerHTML = Object.entries(groups).map(([key, items]) => {
-        const [evento, fecha] = key.split('|||');
-        return `
-          <div class="timeline-card">
-            <div class="timeline-head">
-              <div>
-                <div class="timeline-title">${escapeHtml(evento)}</div>
-                <div class="timeline-sub">${escapeHtml(fecha)} · ${items.length} actividad${items.length===1?'':'es'}</div>
-              </div>
-            </div>
-            <div class="timeline-items">
-              ${items.map(r => `
-                <div class="timeline-item">
-                  <div class="timeline-hour">${escapeHtml(r.Hora || '—')}</div>
-                  <div class="timeline-main">
-                    <b>${escapeHtml(r.Actividad || '—')}</b>
-                    <div>${escapeHtml(r.Notas || 'Sin notas')}</div>
-                    <div class="timeline-meta">
-                      <span class="chip">${escapeHtml(r.Responsable || 'Sin responsable')}</span>
-                      <span class="chip">${escapeHtml(r['Área'] || r.Area || 'Sin área')}</span>
-                      <span class="tag-status ${statusClass(r.Estado)}">${escapeHtml(r.Estado || '—')}</span>
-                    </div>
+function renderPeople(rows){
+  const wrap = document.getElementById('peopleList');
+  const people = uniqueValues(rows,'Responsable');
+  if(!people.length){
+    wrap.innerHTML = '<div class="small">Aún no hay responsables en la hoja.</div>';
+    return;
+  }
+  wrap.innerHTML = people.map(name=>{
+    const mine = rows.filter(r => normalize(r.Responsable) === normalize(name));
+    const areas = uniqueValues(mine, 'Área').join(', ') || 'Sin área';
+    return `<div class="chip-person"><div class="n">${escapeHtml(name)}</div><div class="r">${escapeHtml(areas)} · ${mine.length} actividad${mine.length===1?'':'es'}</div></div>`;
+  }).join('');
+}
+
+function renderMeta(filtered){
+  const eventVal = document.getElementById('eventFilter').value || 'Todos';
+  const dateVal = document.getElementById('dateFilter').value || 'Todas';
+  const areaVal = document.getElementById('areaFilter').value || 'Todas';
+  const peopleVal = document.getElementById('personFilter').value || 'Todos';
+  const statusVal = document.getElementById('statusFilter').value || 'Todos';
+
+  const base = [
+    {Campo:'Evento filtrado', Valor:eventVal},
+    {Campo:'Fecha filtrada', Valor:dateVal},
+    {Campo:'Área filtrada', Valor:areaVal},
+    {Campo:'Responsable filtrado', Valor:peopleVal},
+    {Campo:'Estado filtrado', Valor:statusVal},
+    {Campo:'Actividades visibles', Valor:String(filtered.length)}
+  ];
+
+  const box = document.getElementById('eventMeta');
+  const all = [...base, ...metaRows];
+  box.innerHTML = all.map(item => `
+    <div class="meta-item">
+      <div class="k">${escapeHtml(item.Campo || 'Campo')}</div>
+      <div class="v">${escapeHtml(item.Valor || '—')}</div>
+    </div>
+  `).join('');
+}
+
+function renderTimeline(rows){
+  const body = document.getElementById('timelineBody');
+  const empty = document.getElementById('timelineEmpty');
+  if(!rows.length){
+    body.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const groups = {};
+  sortRows(rows).forEach(r=>{
+    const key = `${r.Evento || 'Sin evento'}|||${r.Fecha || 'Sin fecha'}`;
+    groups[key] = groups[key] || [];
+    groups[key].push(r);
+  });
+
+  body.innerHTML = Object.entries(groups).map(([key, items])=>{
+    const [event, date] = key.split('|||');
+    return `
+      <div class="timeline-card">
+        <div class="timeline-head">
+          <div>
+            <div class="timeline-title">${escapeHtml(event)}</div>
+            <div class="timeline-sub">${escapeHtml(date)} · ${items.length} actividad${items.length===1?'':'es'}</div>
+          </div>
+        </div>
+        <div class="timeline-items">
+          ${items.map(r=>{
+            const area = r['Área'] || r.Area || 'Sin área';
+            return `
+              <div class="timeline-item" style="border-left:4px solid ${areaColor(area)}">
+                <div class="time-range">${escapeHtml(prettyRange(r['Hora inicio'] || r.Hora, r['Hora fin']))}</div>
+                <div class="task-main">
+                  <b>${escapeHtml(r.Actividad || '—')}</b>
+                  <div class="task-notes">${escapeHtml(r.Notas || 'Sin notas')}</div>
+                  <div class="task-meta">
+                    <span class="tag" style="background:${areaColor(area)}18;color:${areaColor(area)};border-color:${areaColor(area)}55">${escapeHtml(area)}</span>
+                    <span class="tag" style="background:#fff;border-color:#e7d7c8;color:#6f6256">${escapeHtml(r.Responsable || 'Sin responsable')}</span>
+                    <span class="tag ${statusClass(r.Estado)}">${escapeHtml(r.Estado || '—')}</span>
                   </div>
-                </div>`).join('')}
-            </div>
-          </div>`;
-      }).join('');
-    }
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
 
-    function getFilteredRows(){
-      const q = normalize(document.getElementById('searchInput').value);
-      const event = normalize(document.getElementById('eventFilter').value);
-      const date = normalize(document.getElementById('dateFilter').value);
-      const area = normalize(document.getElementById('areaFilter').value);
-      const person = normalize(document.getElementById('personFilter').value);
-      const status = normalize(document.getElementById('statusFilter').value);
+function renderCards(rows){
+  const body = document.getElementById('cardsBody');
+  const empty = document.getElementById('cardsEmpty');
+  if(!rows.length){
+    body.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
 
-      return allRows.filter(r => {
-        const hay = Object.values(r).join(' ').toLowerCase();
-        return (!q || hay.includes(q)) &&
-          (!event || normalize(r.Evento) === event) &&
-          (!date || normalize(r.Fecha) === date) &&
-          (!area || normalize(r['Área'] || r.Area) === area) &&
-          (!person || normalize(r.Responsable) === person) &&
-          (!status || normalize(r.Estado) === status);
-      });
-    }
+  body.innerHTML = sortRows(rows).map(r=>{
+    const area = r['Área'] || r.Area || 'Sin área';
+    return `
+      <div class="task-card" style="border-left:5px solid ${areaColor(area)}">
+        <div class="left">
+          <div class="event">${escapeHtml(r.Evento || 'Sin evento')}</div>
+          <div class="hour">${escapeHtml(prettyRange(r['Hora inicio'] || r.Hora, r['Hora fin']))}</div>
+          <div class="small">${escapeHtml(r.Fecha || 'Sin fecha')}</div>
+        </div>
+        <div class="center">
+          <div class="name">${escapeHtml(r.Actividad || '—')}</div>
+          <div class="subline">${escapeHtml(r.Notas || 'Sin notas')}</div>
+          <div class="task-meta">
+            <span class="tag" style="background:${areaColor(area)}18;color:${areaColor(area)};border-color:${areaColor(area)}55">${escapeHtml(area)}</span>
+            <span class="tag" style="background:#fff;border-color:#e7d7c8;color:#6f6256">${escapeHtml(r.Responsable || 'Sin responsable')}</span>
+          </div>
+        </div>
+        <div class="right">
+          <span class="tag ${statusClass(r.Estado)}">${escapeHtml(r.Estado || '—')}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
 
-    let eventMetaRows = [];
+function getFilteredRows(){
+  const q = normalize(document.getElementById('searchInput').value);
+  const event = normalize(document.getElementById('eventFilter').value);
+  const date = normalize(document.getElementById('dateFilter').value);
+  const area = normalize(document.getElementById('areaFilter').value);
+  const person = normalize(document.getElementById('personFilter').value);
+  const status = normalize(document.getElementById('statusFilter').value);
+  const quick = normalize(document.getElementById('quickViewFilter').value);
 
-    function applyFilters(){
-      const filtered = getFilteredRows();
-      renderTable(filtered);
-      renderTimeline(filtered);
-      renderPeople(filtered.length ? filtered : allRows);
-      renderEventMeta(eventMetaRows, filtered);
-    }
+  return allRows.filter(r=>{
+    const hay = Object.values(r).join(' ').toLowerCase();
+    const start = r['Hora inicio'] || r.Hora || '';
+    return (!q || hay.includes(q)) &&
+           (!event || normalize(r.Evento) === event) &&
+           (!date || normalize(r.Fecha) === date) &&
+           (!area || normalize(r['Área'] || r.Area) === area) &&
+           (!person || normalize(r.Responsable) === person) &&
+           (!status || normalize(r.Estado) === status) &&
+           (!quick || quickBucket(start) === quick);
+  });
+}
 
-    async function loadTasks(){
-      const res = await fetch(tasksCsvUrl, { cache:'no-store' });
-      if(!res.ok) throw new Error('No se pudo leer la hoja principal');
-      const text = await res.text();
-      const rows = parseCSV(text).filter(r => r.some(c => String(c).trim()));
-      if(rows.length < 2) return [];
-      const headers = rows[0].map(h => h.trim());
-      return rows.slice(1).map(r => Object.fromEntries(headers.map((h,i)=>[h, (r[i]||'').trim()])));
-    }
+function applyFilters(){
+  const filtered = getFilteredRows();
+  renderTimeline(filtered);
+  renderCards(filtered);
+  renderPeople(filtered.length ? filtered : allRows);
+  renderMeta(filtered);
+}
 
-    async function loadEventMeta(){
-      try{
-        const res = await fetch(eventCsvUrl, { cache:'no-store' });
-        if(!res.ok) return [];
-        const text = await res.text();
-        const rows = parseCSV(text).filter(r => r.some(c => String(c).trim()));
-        if(rows.length < 2) return [];
-        const headers = rows[0].map(h => h.trim());
-        return rows.slice(1).map(r => Object.fromEntries(headers.map((h,i)=>[h, (r[i]||'').trim()])));
-      } catch {
-        return [];
-      }
-    }
+async function loadTasks(){
+  const res = await fetch(tasksCsvUrl, {cache:'no-store'});
+  if(!res.ok) throw new Error('No se pudo leer la hoja principal');
+  const text = await res.text();
+  const rows = parseCSV(text).filter(r => r.some(c => String(c).trim()));
+  if(rows.length < 2) return [];
+  const headers = rows[0].map(h => h.trim());
+  return rows.slice(1).map(r => Object.fromEntries(headers.map((h,i)=>[h,(r[i]||'').trim()])));
+}
 
-    async function refreshData(){
-      try{
-        document.getElementById('refreshBtn').disabled = true;
-        document.getElementById('refreshBtn').textContent = 'Actualizando...';
+async function loadMeta(){
+  try{
+    const res = await fetch(eventCsvUrl, {cache:'no-store'});
+    if(!res.ok) return [];
+    const text = await res.text();
+    const rows = parseCSV(text).filter(r => r.some(c => String(c).trim()));
+    if(rows.length < 2) return [];
+    const headers = rows[0].map(h => h.trim());
+    return rows.slice(1).map(r => Object.fromEntries(headers.map((h,i)=>[h,(r[i]||'').trim()])));
+  } catch {
+    return [];
+  }
+}
 
-        allRows = await loadTasks();
-        eventMetaRows = await loadEventMeta();
+async function refreshData(){
+  try{
+    document.getElementById('refreshBtn').disabled = true;
+    document.getElementById('refreshBtn').textContent = 'Actualizando...';
 
-        fillSelect('eventFilter', uniqueValues(allRows, 'Evento'));
-        fillSelect('dateFilter', uniqueValues(allRows, 'Fecha'));
-        fillSelect('areaFilter', uniqueValues(allRows, 'Área').length ? uniqueValues(allRows, 'Área') : uniqueValues(allRows, 'Area'));
-        fillSelect('personFilter', uniqueValues(allRows, 'Responsable'));
+    allRows = await loadTasks();
+    metaRows = await loadMeta();
 
-        renderStats(allRows);
-        applyFilters();
+    fillSelect('eventFilter', uniqueValues(allRows,'Evento'));
+    fillSelect('dateFilter', uniqueValues(allRows,'Fecha'));
+    fillSelect('areaFilter', uniqueValues(allRows,'Área').length ? uniqueValues(allRows,'Área') : uniqueValues(allRows,'Area'));
+    fillSelect('personFilter', uniqueValues(allRows,'Responsable'));
 
-        document.getElementById('lastUpdated').textContent = 'Actualizado: ' + new Date().toLocaleString('es-MX');
-      } catch(err){
-        console.error(err);
-        alert('No se pudieron cargar los datos. Revisa que tu Google Sheet esté compartido y que la pestaña principal se llame "' + TASKS_SHEET_NAME + '".');
-      } finally {
-        document.getElementById('refreshBtn').disabled = false;
-        document.getElementById('refreshBtn').textContent = 'Actualizar datos';
-      }
-    }
+    renderStats(allRows);
+    applyFilters();
 
-    document.getElementById('refreshBtn').addEventListener('click', refreshData);
-    ['searchInput','eventFilter','dateFilter','areaFilter','personFilter','statusFilter'].forEach(id => {
-      document.getElementById(id).addEventListener(id === 'searchInput' ? 'input' : 'change', applyFilters);
-    });
+    document.getElementById('lastUpdated').textContent = 'Actualizado: ' + new Date().toLocaleString('es-MX');
+  } catch(err){
+    console.error(err);
+    alert('No se pudieron cargar los datos. Revisa que tu Google Sheet esté compartido y que la pestaña principal se llame "' + TASKS_SHEET_NAME + '".');
+  } finally {
+    document.getElementById('refreshBtn').disabled = false;
+    document.getElementById('refreshBtn').textContent = 'Actualizar datos';
+  }
+}
 
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentMode = btn.dataset.mode;
-        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tableView').classList.toggle('hidden', currentMode !== 'table');
-        document.getElementById('timelineView').classList.toggle('hidden', currentMode !== 'timeline');
-      });
-    });
+document.getElementById('refreshBtn').addEventListener('click', refreshData);
+document.getElementById('todayBtn').addEventListener('click', ()=>{
+  const today = new Date().toLocaleDateString('es-MX');
+  const select = document.getElementById('dateFilter');
+  const options = [...select.options].map(o => o.value);
+  if(options.includes(today)) select.value = today;
+  applyFilters();
+});
+document.getElementById('clearBtn').addEventListener('click', ()=>{
+  ['searchInput','eventFilter','dateFilter','areaFilter','personFilter','statusFilter','quickViewFilter'].forEach(id=>{
+    const el = document.getElementById(id);
+    el.value = '';
+  });
+  applyFilters();
+});
 
-    refreshData();
-    setInterval(refreshData, 30000);
-  </script>
+['searchInput','eventFilter','dateFilter','areaFilter','personFilter','statusFilter','quickViewFilter'].forEach(id=>{
+  document.getElementById(id).addEventListener(id === 'searchInput' ? 'input' : 'change', applyFilters);
+});
+
+document.querySelectorAll('.view-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.view-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const view = btn.dataset.view;
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById(view + 'View').classList.add('active');
+  });
+});
+
+refreshData();
+setInterval(refreshData, 30000);
+</script>
 </body>
 </html>

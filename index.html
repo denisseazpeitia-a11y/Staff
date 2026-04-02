@@ -324,7 +324,6 @@ function renderPeople(rows){
   const wrap = document.getElementById('peopleList');
   const people = uniqueValues(rows,'Responsable');
   if(!people.length){
-    wrap.innerHTML = '<div class="small">Aún no hay responsables en la hoja.</div>';
     return;
   }
   wrap.innerHTML = people.map(name=>{

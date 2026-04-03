@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BODA.ROCIO & AARON</title>
+  <title>Boda Rocío & Aaron · Staff</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -30,14 +30,10 @@
     .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#ff9a85}
     .title{font-family:"Bebas Neue",sans-serif;font-size:60px;line-height:.92;margin:6px 0 4px}
     .subtitle{color:#cfbfb1;font-size:14px}
-    .controls{
-      padding:22px 24px 8px
-    }
+    .controls{padding:22px 24px 8px}
     .stats,.filters,.content{max-width:1440px;margin:0 auto}
-    .stats{
-      display:grid;grid-template-columns:1.1fr repeat(6,minmax(120px,1fr));gap:12px;margin-bottom:16px
-    }
-    .card,.stat,.field,.panel,.timeline-card,.task-card,.empty,.mini{
+    .stats{display:grid;grid-template-columns:1.1fr repeat(6,minmax(120px,1fr));gap:12px;margin-bottom:16px}
+    .card,.stat,.field,.panel,.timeline-card,.task-card,.empty{
       background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)
     }
     .stat{padding:16px 18px;min-height:90px;display:flex;flex-direction:column;justify-content:center}
@@ -55,9 +51,7 @@
     }
     .field{padding:10px 12px}
     .field label{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px}
-    input,select{
-      width:100%;border:none;outline:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink)
-    }
+    input,select{width:100%;border:none;outline:none;background:transparent;font-family:inherit;font-size:15px;color:var(--ink)}
     .content{display:grid;grid-template-columns:360px 1fr;gap:18px;padding:0 24px 28px}
     .sidebar{display:flex;flex-direction:column;gap:18px}
     .panel{padding:18px}
@@ -67,9 +61,7 @@
     .meta-item .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:4px}
     .meta-item .v{font-size:15px;font-weight:500}
     .chips{display:flex;flex-wrap:wrap;gap:10px}
-    .chip-person{
-      border:2px solid #e7d7c8;background:#fff;border-radius:999px;padding:10px 12px;min-width:220px
-    }
+    .chip-person{border:2px solid #e7d7c8;background:#fff;border-radius:999px;padding:10px 12px;min-width:220px}
     .chip-person .n{font-weight:700;font-size:14px}
     .chip-person .r{font-size:12px;color:var(--muted);margin-top:2px}
     .main{display:flex;flex-direction:column;gap:16px}
@@ -88,7 +80,7 @@
     }
     .time-range{font-weight:700;font-size:16px;color:var(--accent2)}
     .task-main b{display:block;font-size:15px;margin-bottom:4px}
-    .task-notes{font-size:13px;color:var(--muted)}
+    .task-notes,.subline{font-size:13px;color:var(--muted)}
     .task-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
     .tag{
       display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid transparent
@@ -98,11 +90,6 @@
     .task-card .left .event{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:6px}
     .task-card .left .hour{font-size:18px;font-weight:700;color:var(--accent2)}
     .task-card .center .name{font-weight:700;font-size:16px;margin-bottom:4px}
-    .task-card .center .subline{font-size:13px;color:var(--muted)}
-    .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .mini{padding:12px 14px}
-    .mini .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:4px}
-    .mini .v{font-size:14px;font-weight:700}
     .empty{padding:34px 20px;text-align:center;color:var(--muted)}
     .small{font-size:12px;color:var(--muted)}
     .footer-note{font-size:12px;color:var(--muted);margin-top:10px}
@@ -111,12 +98,19 @@
     .status-listo{background:#eaf8ef;color:#247844;border-color:#bbe2c8}
     .status-terminado{background:#edf9f2;color:#1b7e42;border-color:#b4dfc4}
     .status-default{background:#f3eee8;color:#6f6256;border-color:#e2d7ca}
+    .link-row{margin-top:10px}
+    .link-btn{
+      display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;color:#fff
+    }
+    .link-drive{background:#2b78e4}
+    .link-maps{background:#188038}
+    .link-whatsapp{background:#25d366;color:#123}
+    .link-generic{background:#d94a2f}
     @media (max-width:1180px){
       .stats,.filters,.content{grid-template-columns:1fr}
       .content{padding:0 24px 24px}
       .title{font-size:48px}
       .task-card,.timeline-item{grid-template-columns:1fr}
-      .mini-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -124,7 +118,7 @@
   <div class="topbar">
     <div class="wrap">
       <div class="eyebrow">Panel compartido · Staff operativo</div>
-      <div class="title">Boda Rocio & Aaron</div>
+      <div class="title">Boda Rocío & Aaron</div>
       <div class="subtitle">Google Sheets conectado · filtros por evento y fecha · timeline con hora inicio y fin</div>
     </div>
   </div>
@@ -184,12 +178,7 @@
       <div class="panel">
         <h3>Equipo</h3>
         <div class="chips" id="peopleList"></div>
-        <div class="footer-note">Los responsables se generan automáticamente desde tu Sheet.</div>
-      </div>
-
-      <div class="panel">
-        <h3>Formato del Sheet</h3>
-        <div class="small"><b>Columnas recomendadas:</b><br>Evento | Fecha | Hora inicio | Hora fin | Actividad | Responsable | Área | Estado | Notas</div>
+        <div class="footer-note">Columnas recomendadas: Evento | Fecha | Hora inicio | Hora fin | Actividad | Responsable | Área | Estado | Notas | Link</div>
       </div>
     </div>
 
@@ -243,7 +232,6 @@ function parseCSV(text){
   if(value.length || row.length){ row.push(value); rows.push(row); }
   return rows;
 }
-
 function normalize(s=''){ return String(s).trim().toLowerCase(); }
 function escapeHtml(s=''){
   return String(s)
@@ -252,11 +240,9 @@ function escapeHtml(s=''){
     .replaceAll('>','&gt;')
     .replaceAll('"','&quot;');
 }
-
 function uniqueValues(rows,key){
   return [...new Set(rows.map(r => (r[key]||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
 }
-
 function fillSelect(id, values){
   const el = document.getElementById(id);
   const current = el.value;
@@ -264,16 +250,14 @@ function fillSelect(id, values){
   el.innerHTML = first + values.map(v => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join('');
   if(values.includes(current)) el.value = current;
 }
-
 function statusClass(status=''){
   const s = normalize(status);
   if (s === 'pendiente') return 'status-pendiente';
-  if (s === 'en proceso' || s === 'en-progreso') return 'status-en-proceso';
+  if (s === 'en proceso' || s === 'en-proceso') return 'status-en-proceso';
   if (s === 'listo') return 'status-listo';
   if (s === 'terminado' || s === 'completado') return 'status-terminado';
   return 'status-default';
 }
-
 function areaColor(area=''){
   const map = {
     'coordinación':'#de4b2b',
@@ -283,16 +267,16 @@ function areaColor(area=''){
     'servicio':'#c48719',
     'recepción':'#cb5e8e',
     'foto':'#3e7a6c',
-    'video':'#5c4a1f'
+    'video':'#5c4a1f',
+    'eventos':'#8a6a3f',
+    'concierge':'#8d4fa8'
   };
   return map[normalize(area)] || '#7d7065';
 }
-
 function prettyRange(start='', end=''){
   if(start && end) return `${start} – ${end}`;
   return start || end || 'Sin horario';
 }
-
 function quickBucket(time=''){
   const t = normalize(time);
   const hour = parseInt(t.split(':')[0], 10);
@@ -301,15 +285,21 @@ function quickBucket(time=''){
   if (hour < 18) return 'afternoon';
   return 'night';
 }
-
 function sortRows(rows){
   return [...rows].sort((a,b)=>{
-    const x = `${a.Fecha||''} ${a['Hora inicio']||a.Hora||''} ${a.Evento||''}`;
-    const y = `${b.Fecha||''} ${b['Hora inicio']||b.Hora||''} ${b.Evento||''}`;
+    const x = `${a.Fecha||''} ${a['Hora inicio']||a['Hora Inicio']||a.Hora||''} ${a.Evento||''}`;
+    const y = `${b.Fecha||''} ${b['Hora inicio']||b['Hora Inicio']||b.Hora||''} ${b.Evento||''}`;
     return x.localeCompare(y);
   });
 }
-
+function linkMeta(url=''){
+  const u = normalize(url);
+  if(!u) return null;
+  if(u.includes('drive.google')) return {cls:'link-drive', label:'📁 Ver Drive'};
+  if(u.includes('maps.google') || u.includes('goo.gl/maps')) return {cls:'link-maps', label:'📍 Ver ubicación'};
+  if(u.includes('wa.me') || u.includes('whatsapp')) return {cls:'link-whatsapp', label:'💬 WhatsApp'};
+  return {cls:'link-generic', label:'🔗 Ver info'};
+}
 function renderStats(rows){
   document.getElementById('totalTasks').textContent = rows.length;
   document.getElementById('eventCount').textContent = uniqueValues(rows,'Evento').length;
@@ -319,11 +309,11 @@ function renderStats(rows){
   document.getElementById('progressCount').textContent = rows.filter(r => ['en proceso','en-progreso'].includes(normalize(r.Estado))).length;
   document.getElementById('doneCount').textContent = rows.filter(r => ['listo','terminado','completado'].includes(normalize(r.Estado))).length;
 }
-
 function renderPeople(rows){
   const wrap = document.getElementById('peopleList');
   const people = uniqueValues(rows,'Responsable');
   if(!people.length){
+    wrap.innerHTML = '<div class="small">Aún no hay responsables en la hoja.</div>';
     return;
   }
   wrap.innerHTML = people.map(name=>{
@@ -332,14 +322,12 @@ function renderPeople(rows){
     return `<div class="chip-person"><div class="n">${escapeHtml(name)}</div><div class="r">${escapeHtml(areas)} · ${mine.length} actividad${mine.length===1?'':'es'}</div></div>`;
   }).join('');
 }
-
 function renderMeta(filtered){
   const eventVal = document.getElementById('eventFilter').value || 'Todos';
   const dateVal = document.getElementById('dateFilter').value || 'Todas';
   const areaVal = document.getElementById('areaFilter').value || 'Todas';
   const peopleVal = document.getElementById('personFilter').value || 'Todos';
   const statusVal = document.getElementById('statusFilter').value || 'Todos';
-
   const base = [
     {Campo:'Evento filtrado', Valor:eventVal},
     {Campo:'Fecha filtrada', Valor:dateVal},
@@ -348,7 +336,6 @@ function renderMeta(filtered){
     {Campo:'Estado filtrado', Valor:statusVal},
     {Campo:'Actividades visibles', Valor:String(filtered.length)}
   ];
-
   const box = document.getElementById('eventMeta');
   const all = [...base, ...metaRows];
   box.innerHTML = all.map(item => `
@@ -358,7 +345,6 @@ function renderMeta(filtered){
     </div>
   `).join('');
 }
-
 function renderTimeline(rows){
   const body = document.getElementById('timelineBody');
   const empty = document.getElementById('timelineEmpty');
@@ -368,7 +354,6 @@ function renderTimeline(rows){
     return;
   }
   empty.style.display = 'none';
-
   const groups = {};
   sortRows(rows).forEach(r=>{
     const key = `${r.Evento || 'Sin evento'}|||${r.Fecha || 'Sin fecha'}`;
@@ -389,12 +374,15 @@ function renderTimeline(rows){
         <div class="timeline-items">
           ${items.map(r=>{
             const area = r['Área'] || r.Area || 'Sin área';
+            const link = r['Link'] || r.Link || '';
+            const meta = linkMeta(link);
             return `
               <div class="timeline-item" style="border-left:4px solid ${areaColor(area)}">
-                <div class="time-range">${escapeHtml(prettyRange(r['Hora inicio'] || r.Hora, r['Hora fin']))}</div>
+                <div class="time-range">${escapeHtml(prettyRange(r['Hora inicio'] || r['Hora Inicio'] || r.Hora, r['Hora fin'] || r['Hora Fin']))}</div>
                 <div class="task-main">
                   <b>${escapeHtml(r.Actividad || '—')}</b>
                   <div class="task-notes">${escapeHtml(r.Notas || 'Sin notas')}</div>
+                  ${meta ? `<div class="link-row"><a class="link-btn ${meta.cls}" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${meta.label}</a></div>` : ``}
                   <div class="task-meta">
                     <span class="tag" style="background:${areaColor(area)}18;color:${areaColor(area)};border-color:${areaColor(area)}55">${escapeHtml(area)}</span>
                     <span class="tag" style="background:#fff;border-color:#e7d7c8;color:#6f6256">${escapeHtml(r.Responsable || 'Sin responsable')}</span>
@@ -409,7 +397,6 @@ function renderTimeline(rows){
     `;
   }).join('');
 }
-
 function renderCards(rows){
   const body = document.getElementById('cardsBody');
   const empty = document.getElementById('cardsEmpty');
@@ -422,16 +409,19 @@ function renderCards(rows){
 
   body.innerHTML = sortRows(rows).map(r=>{
     const area = r['Área'] || r.Area || 'Sin área';
+    const link = r['Link'] || r.Link || '';
+    const meta = linkMeta(link);
     return `
       <div class="task-card" style="border-left:5px solid ${areaColor(area)}">
         <div class="left">
           <div class="event">${escapeHtml(r.Evento || 'Sin evento')}</div>
-          <div class="hour">${escapeHtml(prettyRange(r['Hora inicio'] || r.Hora, r['Hora fin']))}</div>
+          <div class="hour">${escapeHtml(prettyRange(r['Hora inicio'] || r['Hora Inicio'] || r.Hora, r['Hora fin'] || r['Hora Fin']))}</div>
           <div class="small">${escapeHtml(r.Fecha || 'Sin fecha')}</div>
         </div>
         <div class="center">
           <div class="name">${escapeHtml(r.Actividad || '—')}</div>
           <div class="subline">${escapeHtml(r.Notas || 'Sin notas')}</div>
+          ${meta ? `<div class="link-row"><a class="link-btn ${meta.cls}" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${meta.label}</a></div>` : ``}
           <div class="task-meta">
             <span class="tag" style="background:${areaColor(area)}18;color:${areaColor(area)};border-color:${areaColor(area)}55">${escapeHtml(area)}</span>
             <span class="tag" style="background:#fff;border-color:#e7d7c8;color:#6f6256">${escapeHtml(r.Responsable || 'Sin responsable')}</span>
@@ -444,7 +434,6 @@ function renderCards(rows){
     `;
   }).join('');
 }
-
 function getFilteredRows(){
   const q = normalize(document.getElementById('searchInput').value);
   const event = normalize(document.getElementById('eventFilter').value);
@@ -456,7 +445,7 @@ function getFilteredRows(){
 
   return allRows.filter(r=>{
     const hay = Object.values(r).join(' ').toLowerCase();
-    const start = r['Hora inicio'] || r.Hora || '';
+    const start = r['Hora inicio'] || r['Hora Inicio'] || r.Hora || '';
     return (!q || hay.includes(q)) &&
            (!event || normalize(r.Evento) === event) &&
            (!date || normalize(r.Fecha) === date) &&
@@ -466,7 +455,6 @@ function getFilteredRows(){
            (!quick || quickBucket(start) === quick);
   });
 }
-
 function applyFilters(){
   const filtered = getFilteredRows();
   renderTimeline(filtered);
@@ -474,7 +462,6 @@ function applyFilters(){
   renderPeople(filtered.length ? filtered : allRows);
   renderMeta(filtered);
 }
-
 async function loadTasks(){
   const res = await fetch(tasksCsvUrl, {cache:'no-store'});
   if(!res.ok) throw new Error('No se pudo leer la hoja principal');
@@ -484,7 +471,6 @@ async function loadTasks(){
   const headers = rows[0].map(h => h.trim());
   return rows.slice(1).map(r => Object.fromEntries(headers.map((h,i)=>[h,(r[i]||'').trim()])));
 }
-
 async function loadMeta(){
   try{
     const res = await fetch(eventCsvUrl, {cache:'no-store'});
@@ -498,33 +484,27 @@ async function loadMeta(){
     return [];
   }
 }
-
 async function refreshData(){
   try{
     document.getElementById('refreshBtn').disabled = true;
     document.getElementById('refreshBtn').textContent = 'Actualizando...';
-
     allRows = await loadTasks();
     metaRows = await loadMeta();
-
     fillSelect('eventFilter', uniqueValues(allRows,'Evento'));
     fillSelect('dateFilter', uniqueValues(allRows,'Fecha'));
     fillSelect('areaFilter', uniqueValues(allRows,'Área').length ? uniqueValues(allRows,'Área') : uniqueValues(allRows,'Area'));
     fillSelect('personFilter', uniqueValues(allRows,'Responsable'));
-
     renderStats(allRows);
     applyFilters();
-
     document.getElementById('lastUpdated').textContent = 'Actualizado: ' + new Date().toLocaleString('es-MX');
   } catch(err){
     console.error(err);
-    alert('No se pudieron cargar los datos. Revisa que tu Google Sheet esté compartido y que la pestaña principal se llame "' + TASKS_SHEET_NAME + '".');
+    alert('No se pudieron cargar los datos. Revisa que tu Google Sheet esté compartido y que la pestaña principal se llame "Hoja 1".');
   } finally {
     document.getElementById('refreshBtn').disabled = false;
     document.getElementById('refreshBtn').textContent = 'Actualizar datos';
   }
 }
-
 document.getElementById('refreshBtn').addEventListener('click', refreshData);
 document.getElementById('todayBtn').addEventListener('click', ()=>{
   const today = new Date().toLocaleDateString('es-MX');
@@ -540,11 +520,9 @@ document.getElementById('clearBtn').addEventListener('click', ()=>{
   });
   applyFilters();
 });
-
 ['searchInput','eventFilter','dateFilter','areaFilter','personFilter','statusFilter','quickViewFilter'].forEach(id=>{
   document.getElementById(id).addEventListener(id === 'searchInput' ? 'input' : 'change', applyFilters);
 });
-
 document.querySelectorAll('.view-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.view-btn').forEach(b=>b.classList.remove('active'));
@@ -554,7 +532,6 @@ document.querySelectorAll('.view-btn').forEach(btn=>{
     document.getElementById(view + 'View').classList.add('active');
   });
 });
-
 refreshData();
 setInterval(refreshData, 30000);
 </script>
